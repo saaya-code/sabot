@@ -1,2 +1,1 @@
-# sabot
-A discord bot
+# Sabot
