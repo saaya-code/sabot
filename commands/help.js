@@ -14,6 +14,7 @@ module.exports = async function(msg){
  .addField("Roaster","`!roaster` : Showcases the list of members that have a role named exactly **Clash Roaster**.")
  .addField("Say","`!say` <sentence> : Delete the user's sentence and send it instead.")
  .addField("Select","`!select` [(option)] <argument1> <argument2>.. : Chooses one random element from the arguments you can specify the title by writing it instead of the option (must be between parentheses) If no option it specified the default value is set to 'Selection'.")
+ .addField("Screenshot", "`!screenshot` <website> : Sends a screenshot of the website you provided." )
  .addField("Invite","`!invite` : Creates an invite link so you can add the bot to your server.")
  msg.channel.send(embed)
 }
