@@ -1,5 +1,5 @@
 const app = require("puppeteer")
-var fs = require('fs')
+
 var options = {
     path : `../Sabot/screenshots/saved.png`,
     fullPage : false
