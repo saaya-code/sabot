@@ -5,7 +5,12 @@ var options = {
     fullPage : false
 }
 async function product(url){
-    const browser = await app.launch()
+    const browser = await app.launch({
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+        ],
+      })
     const page = await browser.newPage()
     await page.goto(url)
         await page.screenshot(options)
