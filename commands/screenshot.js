@@ -6,6 +6,8 @@ var options = {
 }
 async function product(url){
     const browser = await app.launch({
+        headless:true,
+        defaultViewport: null,
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
