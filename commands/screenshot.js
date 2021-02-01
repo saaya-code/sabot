@@ -1,4 +1,4 @@
-const app = require("puppeteer")
+/*
 
 var options = {
     path : `../Sabot/screenshots/saved.png`,
@@ -38,4 +38,4 @@ catch(err){console.error(err)
     msg.react("❌")
     
 }
-}
+}*/
