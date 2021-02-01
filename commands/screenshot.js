@@ -9,6 +9,8 @@ async function product(url){
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
+          "--single-process",
+          "--no-zygote"
         ],
       })
     const page = await browser.newPage()
