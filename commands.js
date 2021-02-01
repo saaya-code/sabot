@@ -11,7 +11,7 @@ const help = require("./commands/help")
 const invite = require("./commands/invite")
 const screenshot = require("./commands/screenshot")
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,screenshot
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite
  
 }
 module.exports = async function (msg) {
