@@ -9,7 +9,6 @@ const roaster = require("./commands/roaster")
 const quote  = require("./commands/quote")
 const help = require("./commands/help")
 const invite = require("./commands/invite")
-const screenshot = require("./commands/screenshot")
 const commands = {
  ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite
  
