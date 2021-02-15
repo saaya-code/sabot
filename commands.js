@@ -9,8 +9,9 @@ const roaster = require("./commands/roaster")
 const quote  = require("./commands/quote")
 const help = require("./commands/help")
 const invite = require("./commands/invite")
+const weather = require("./commands/weather")
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather
  
 }
 module.exports = async function (msg) {
