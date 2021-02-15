@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 module.exports = async function(msg){
+    try{
     var color = msg.member.displayHexColor;
     const embed = new Discord.MessageEmbed()
     .setColor(color)
@@ -9,4 +10,9 @@ module.exports = async function(msg){
     .setTitle("Join our support server !")
     .setURL('https://discord.gg/92nbqStPXm')
     msg.channel.send(embed)
+}
+catch(err){
+    console.error(err)
+    msg.react("❌")
+}
 }
