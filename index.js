@@ -8,7 +8,7 @@ client.on('ready',()=>{
     const Guilds = client.guilds.cache.map(guild => guild.id)
     arr = client.guilds.cache.map(g=>g.name)
     console.log(` Running on ${Guilds.length} Servers : ${arr.join(" / ")}`)
-    client.user.setActivity(`Running on ${Guilds.length} servers.| Use "!help" and "!invite".`);
+    client.user.setActivity(`Running on ${Guilds.length} servers.| Use "!help","!invite" and "!about" .`);
     });
     client.on("guildCreate",(g) => { 
         const Guilds = client.guilds.cache.map(guild => guild.id) 
