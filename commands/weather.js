@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fetch = require("node-fetch") 
 module.exports = async function(msg,args){
     try{
-        arg = args.join(' ').trim()
+    arg = args.join(' ').trim()
     BaseURL = `https://api.openweathermap.org/data/2.5/weather?q=${arg}&appid=${process.env.WEATHER}`
     response= await fetch(BaseURL)
      json = await response.json()

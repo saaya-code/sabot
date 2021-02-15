@@ -10,8 +10,10 @@ const quote  = require("./commands/quote")
 const help = require("./commands/help")
 const invite = require("./commands/invite")
 const weather = require("./commands/weather")
+const about = require("./commands/about")
+
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about
  
 }
 module.exports = async function (msg) {

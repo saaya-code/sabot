@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = async function(msg){
  const embed = new Discord.MessageEmbed()
  .setColor(msg.member.displayHexColor)
- .setTitle("Github links").setURL("https://github.com/saaya-code/Sabot")
+ .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
  .setFooter("<argument>: required argument | [argument]: optional argument")
  .addField("General commands",'\u200b')
  .addField("Avatar","`!avatar` [mention] : Shows the tagged person or the user who commited to command's avatar (in case no one was tagged).")
@@ -16,5 +16,6 @@ module.exports = async function(msg){
  .addField("Select","`!select` [(option)] <argument1> <argument2>.. : Chooses one random element from the arguments you can specify the title by writing it instead of the option (must be between parentheses) If no option it specified the default value is set to 'Selection'.")
  .addField("Invite","`!invite` : Creates an invite link so you can add the bot to your server.")
  .addField("Weather", "`!weather` <City name> : Replies with the current weather conditions in the city you provided.")
+ .addField("About", "`!about` : Shows details related to the bot.")
  msg.channel.send(embed)
 }
