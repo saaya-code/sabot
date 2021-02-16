@@ -13,11 +13,13 @@ module.exports = async function(msg,args){
      .setTitle(`Weather now in ${arg}`)
      .addField('Weather', json.weather[0].main)
      .addField('Description', json.weather[0].description)
-     .addField('Temperature', json.main.temp +' Kelvins')
-     .addField('Humidity ',json.main.humidity + 'g.m-3')
+     .addField('Temperature', json.main.temp - 273.15 +'°C')
+     .addField('Feels like',Math.floor(json.main.feels_like - 273.15) +'°C')
+     .addField('Humidity in the air',json.main.humidity + '%')
      .addField('Pressure', json.main.pressure+ ' (Pa)')
      .setThumbnail(`http://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png`)
-     .addField('Wind speeed',json.wind.speed +' m·s−1')
+     .addField('Wind speeed',json.wind.speed +' m/s')
+     
     msg.channel.send(embed)
 }
 catch(err){
