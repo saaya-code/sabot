@@ -18,5 +18,6 @@ module.exports = async function(msg){
  .addField("Weather", "`!weather` <City name> : Replies with the current weather conditions in the city you provided.")
  .addField("About", "`!about` : Shows details related to the bot.")
  .addField("!Fact","`!fact` : Sends a random useless fact.")
+ .addField("!Lookfor","`!lookfor` <word> : Verifies the existance of <word> in english dictionary.")
  msg.channel.send(embed)
 }
