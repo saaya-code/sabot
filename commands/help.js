@@ -19,5 +19,6 @@ module.exports = async function(msg){
  .addField("About", "`!about` : Shows details related to the bot.")
  .addField("!Fact","`!fact` : Sends a random useless fact.")
  .addField("!Lookfor","`!lookfor` <word> : Verifies the existance of <word> in english dictionary.")
+ .addField("!Rps", "`!rps` <@player> : Creates a rock paper scissors for you and the mentioned player.")
  msg.channel.send(embed)
 }
