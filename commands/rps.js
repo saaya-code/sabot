@@ -70,21 +70,21 @@ var player2 = {user : msg.mentions.users.first(), choice:`` ,name:msg.mentions.u
     await msg1.react(`🧻`)
     await msg1.react(`✂️`)
 msg1.edit(realembed)
-    msg1.awaitReactions((reaction) =>  (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 30000 }).then((collected)=>{
+    msg1.awaitReactions((reaction) =>  (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
         if (collected.first().emoji.name == `🪨`)
         player1.choice = `rock`
         if (collected.first().emoji.name == `🧻`)
         player1.choice = `paper`
         if (collected.first().emoji.name == `✂️`)
         player1.choice = `scissors`
-        player1.user.send('waiting other player choice...')
+        player1.user.send('waiting other player\'s choice...')
     }).then(()=>{
         player2.user.send(embed).then(async (msg1)=>{
             await msg1.react(`🪨`)
             await msg1.react(`🧻`)
             await msg1.react(`✂️`)
             msg1.edit(realembed)
-            await msg1.awaitReactions((reaction, user) => user.id == player2.user.id && (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 30000 }).then((collected)=>{
+            await msg1.awaitReactions((reaction, user) => user.id == player2.user.id && (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
                 if (collected.first().emoji.name == `🪨`)
                 player2.choice = `rock`
                 if (collected.first().emoji.name == `🧻`)
