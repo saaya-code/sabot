@@ -54,6 +54,19 @@ return result;
 };
 module.exports = async function(msg,args){
     try{
+        if(msg.mentions.users.first().bot || msg.mentions.users.first()==msg.author){
+            return msg.reply("Invalid opponent please choose an actual player.")
+        }
+        else{
+            msg.channel.send("Initializating RPS session...").then((a)=>{
+                setInterval(async () => {
+                     a.edit("Session initialized!")
+                }, 1000);
+            }).catch((err)=>{
+               msg.channel.send("Unexpected error")
+               console.error(err)
+            })
+        }
 const realembed = new Discord.MessageEmbed()
 .setColor("#00FF00")
 .setTitle(`Rock paper scissors!`)
