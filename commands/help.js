@@ -5,7 +5,7 @@ module.exports = async function(msg){
  .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
  .setFooter("<argument>: required argument | [argument]: optional argument")
  .addField("General commands",'\u200b')
- .addField("Avatar","`!avatar` [mention] : Shows the tagged person or the user who commited to command's avatar (in case no one was tagged).")
+ .addField("Avatar","`!avatar` [mention] : Shows the tagged person or the user who commited the command avatar's (in case no one was tagged).")
  .addField("Gif","`!gif` [Search term] : Sends a gif from tenor specified by your search term or a random gif (in case no search term was provided)." )
  .addField("Joke","`!joke` : Sends a random joke.")
  .addField("Ping", "`!ping` : Replies with your current client ping.")
@@ -19,6 +19,6 @@ module.exports = async function(msg){
  .addField("About", "`!about` : Shows details related to the bot.")
  .addField("!Fact","`!fact` : Sends a random useless fact.")
  .addField("!Lookfor","`!lookfor` <word> : Verifies the existance of <word> in english dictionary.")
- .addField("!Rps", "`!rps` <@player> : Creates a rock paper scissors for you and the mentioned player.")
+ .addField("!Rps", "`!rps` <@player> : Creates a rock paper scissors game session for you and the mentioned player.")
  msg.channel.send(embed)
 }
