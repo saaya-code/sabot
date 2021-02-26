@@ -3,7 +3,7 @@ function det(x){
     switch(x){
      case "rock": return "🪨"
      case "paper": return  "🧻"
-     case "scissors":"✂️"
+     case "scissors": return "✂️"
     }
 }
 var compare = function(p1, p2) {
@@ -17,9 +17,8 @@ var compare = function(p1, p2) {
 }
 if(p1.choice === `rock`) {
     if(p2.choice === `scissors`) {
-
         result.text = `${p1.name} wins`
-        result.image = `🪨 ======> ✂️ `//true
+        result.image = `🪨 ======> ✂️`//true
     } else {
         result.text = `${p2.name} wins`
         result.image = `🧻 ======> 🪨` //true 
@@ -29,13 +28,14 @@ if(p1.choice === `rock`) {
 if(p1.choice === `paper`) {
     if(p2.choice === `rock`) {
         result.text = `${p1.name} wins`
-        result.image = `🧻 ======> 🪨  `//true
+        result.image = `🧻 ======> 🪨 `//true
     } else {
         if(p2.choice === `scissors`) {
            result.text = `${p2.name} wins`
-           result.image = `✂️ ======> 🧻 `//true
+           result.image = `✂️ ======> 🧻`//true
 
     }
+}
 }
 if(p1.choice === `scissors`) {
     if(p2.choice === `rock`) {
@@ -43,18 +43,18 @@ if(p1.choice === `scissors`) {
         result.image = `🪨 ======> ✂️` //true
     } else {
         if(p2.choice === `paper`) {
-            result.text= `${p1.name} wins`
-            result.image = `✂️ ======>🧻 `//true
+            result.text = `${p1.name} wins`
+            result.image = `✂️======>🧻` //true
         }
     }
 }
-}
+
 result.test = "Congrats!"
 return result;
 };
 module.exports = async function(msg,args){
     try{
-        if(msg.mentions.users.first().bot || msg.mentions.users.first()==msg.author){
+        if(msg.mentions.users.first().bot || msg.author == msg.mentions.users.first()){
             return msg.reply("Invalid opponent please choose an actual player.")
         }
         else{
@@ -82,8 +82,8 @@ var player2 = {user : msg.mentions.users.first(), choice:`` ,name:msg.mentions.u
     await msg1.react(`🪨`)
     await msg1.react(`🧻`)
     await msg1.react(`✂️`)
-msg1.edit(realembed)
-    msg1.awaitReactions((reaction) =>  (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
+await msg1.edit(realembed)
+   await msg1.awaitReactions((reaction) =>  (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
         if (collected.first().emoji.name == `🪨`)
         player1.choice = `rock`
         if (collected.first().emoji.name == `🧻`)
@@ -91,12 +91,13 @@ msg1.edit(realembed)
         if (collected.first().emoji.name == `✂️`)
         player1.choice = `scissors`
         player1.user.send('waiting other player\'s choice...')
+        console.log("Player one choose "+player1.choice)
     }).then(()=>{
         player2.user.send(embed).then(async (msg1)=>{
             await msg1.react(`🪨`)
             await msg1.react(`🧻`)
             await msg1.react(`✂️`)
-            msg1.edit(realembed)
+            await msg1.edit(realembed)
             await msg1.awaitReactions((reaction, user) => user.id == player2.user.id && (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
                 if (collected.first().emoji.name == `🪨`)
                 player2.choice = `rock`
@@ -104,9 +105,12 @@ msg1.edit(realembed)
                 player2.choice = `paper`
                 if (collected.first().emoji.name == `✂️`)
                 player2.choice = `scissors`
-                
+                console.log("Player two choose "+player2.choice)
+
         })
 res = compare(player1,player2)
+console.log(res.text)
+console.log(res)
 const embed2 = new Discord.MessageEmbed()
 .setColor("#00FF00")
 .setTitle("Game over!")
