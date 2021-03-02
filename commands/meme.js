@@ -11,7 +11,6 @@ if (json.code == '404'){
     msg.channel.send(json.message)
 }
 else{
-await msg.delete();
 msg.reply('Here\'s a meme from /r/'+json.subreddit)
 msg.channel.send(json.url)
 console.log('!meme in '+msg.channel.name)
