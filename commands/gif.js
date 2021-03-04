@@ -12,8 +12,7 @@ let word = 'Random'
     random = Math.floor(Math.random()*file.results.length)
     msg.reply(`Here's a gif of ${word} as you requested 😉`);
     msg.channel.send(file.results[random].url)
-    console.log('!gif in '+msg.channel.name)
-    console.log(file.results[random].url)
+
 } 
 catch(err){
     console.error(err)

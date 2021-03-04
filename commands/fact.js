@@ -11,6 +11,7 @@ module.exports = async function(msg){
      .addField("\u200B",res1.text) 
      .setFooter(`**Congrats you just wasted ${res1.text.length / 25} seconds reading this fact !**` )
     msg.channel.send(embed)
+
  
     })  
     .catch((err)=>{

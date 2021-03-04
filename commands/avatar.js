@@ -7,4 +7,5 @@ const avatarEmbed = new Discord.MessageEmbed()
     .setAuthor(user.username)
     .setImage(user.displayAvatarURL())
 msg.channel.send(avatarEmbed);
+
 }

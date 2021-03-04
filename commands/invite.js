@@ -8,4 +8,5 @@ const embed = new Discord.MessageEmbed()
 .setFooter("Creator saàya#1206")
 .setThumbnail("https://cdn.discordapp.com/avatars/759795320254496768/61188b7f3cc87950a7b48e2aac0c185e.png")
 msg.channel.send(embed)
+
 }

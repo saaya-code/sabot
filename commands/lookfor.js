@@ -22,7 +22,7 @@ module.exports = async function(msg,args){
         .addField("\u200B",args.join('')+` was **not found** in english dictionary`)
         .setThumbnail("https://www.auathailand.org/wp-content/uploads/2020/05/98316865_2944133432308608_4940618798915911680_n-600x600.jpg")
         msg.channel.send(embed)
-        console.log(response.found)
+
       }
      })
      .catch(err => console.error(err))

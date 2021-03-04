@@ -2,6 +2,7 @@ const fetch = require("node-fetch")
 
 module.exports = async function (msg) {
     try{
+
 let link = `https://official-joke-api.appspot.com/random_joke`
 response = await fetch(link)
 json = await response.json()

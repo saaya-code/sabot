@@ -25,6 +25,7 @@ module.exports = async function (msg) {
     let args = msg.content.split(" ")
     let command = args.shift()
     if (command.charAt(0)=="*"){
+        console.log(`Used ${command} in ${msg.guild.name}\n by user ${msg.author.username}`)
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
 }
