@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const mongoose = require("mongoose");
 require('dotenv').config();
 client.login(process.env.TOKEN)
 const commandHandler = require("./commands");
