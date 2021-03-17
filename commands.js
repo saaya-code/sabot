@@ -28,5 +28,5 @@ module.exports = async function (msg) {
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
 }
-}catch(err){console.error(err)}
+}catch(err){console.log("Used a command that starts with * but doesn't belong to the commands")}
 }
