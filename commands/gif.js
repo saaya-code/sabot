@@ -14,7 +14,7 @@ let word = 'Random'
             setInterval(async ()=>{
                 await msg1.delete()
             },3000)
-        })
+        }).catch((err))
 
     }
     else{

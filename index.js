@@ -16,5 +16,11 @@ client.on('ready',()=>{
         const Guilds = client.guilds.cache.map(guild => guild.id) 
         console.log(`Joined new guild: ${g.name}`);
         client.user.setActivity(`Running on ${Guilds.length} servers.| Use "*help","*invite" and "*about".`);
+    });
+    client.on("guildDelete",(g) => { 
+        const Guilds = client.guilds.cache.map(guild => guild.id) 
+        console.log(`left guild: ${g.name}`);
+        client.user.setActivity(`Running on ${Guilds.length} servers.| Use "*help","*invite" and "*about".`);
 
     });
+
