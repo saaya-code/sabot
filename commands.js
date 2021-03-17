@@ -23,7 +23,7 @@ module.exports = async function (msg) {
    try{
     let args = msg.content.split(" ")
     let command = args.shift()
-    if (command.charAt(0)=="*"){
+    if (command.charAt(0)=="*" && msg.channel.permissionsFor(msg.guild.me).has("SEND_MESSAGES") && msg.channel.permissionsFor(msg.guild.me).has("ADD_REACTIONS")){
         console.log(`Used ${command} in ${msg.guild.name}\n by user ${msg.author.username}`)
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
