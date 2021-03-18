@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@top-gg/sdk": "^3.0.9",
     "@types/mssql": "^6.0.7",
     "axios": "^0.21.0",
     "discord-rich-presence": "0.0.8",
