@@ -9,7 +9,7 @@ const url = "https://api.quotable.io/random";
     .setFooter(json.author)
     .addField('Quote : ',json.content)
     .setColor("#00FFFF")
-    .setImage('https://lh3.googleusercontent.com/AlSLYTv0cCe4oLJw7mHeZ8jGD65e6IR8V3MGtXFgbWlAjg0PrpGTGASk1PsRc4bufMiBgXe38ZShWPDdEIo1cLJJjQ=w640-h400-e365-rj-sc0x00ffffff');
+    .setThumbnail('https://lh3.googleusercontent.com/AlSLYTv0cCe4oLJw7mHeZ8jGD65e6IR8V3MGtXFgbWlAjg0PrpGTGASk1PsRc4bufMiBgXe38ZShWPDdEIo1cLJJjQ=w640-h400-e365-rj-sc0x00ffffff');
     msg.channel.send(embed)
 }
 catch(err){  
