@@ -29,4 +29,12 @@ client.on('ready',()=>{
             serverCount: client.guilds.cache.size
           })
     });
+    client.on("guildMemberAdd",(m)=>{
+        const Guilds = client.guilds.cache.map(guild => guild.id) 
+        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+    })
+    client.on("guildMemberRemove",(m)=>{
+        const Guilds = client.guilds.cache.map(guild => guild.id) 
+        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+    })
 
