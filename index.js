@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const Topgg = require('@top-gg/sdk')
 require('dotenv').config();
 const api = new Topgg.Api(process.env.TOPGG)
-
 client.login(process.env.TOKEN)
 const commandHandler = require("./commands");
 client.on("message",commandHandler)  
