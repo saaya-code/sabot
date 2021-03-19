@@ -10,7 +10,9 @@ client.on('ready',()=>{
     const Guilds = client.guilds.cache.map(guild => guild.id)
     arr = client.guilds.cache.map(g=>g.name)
     console.log(`Running on ${Guilds.length} Servers : ${arr.join(" / ")}`)
-    client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+    setInterval(()=>{
+        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+    },180000);
 });
 
     client.on("guildCreate",(g) => { 
@@ -29,12 +31,4 @@ client.on('ready',()=>{
             serverCount: client.guilds.cache.size
           })
     });
-    client.on("guildMemberAdd",(m)=>{
-        const Guilds = client.guilds.cache.map(guild => guild.id) 
-        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
-    })
-    client.on("guildMemberRemove",(m)=>{
-        const Guilds = client.guilds.cache.map(guild => guild.id) 
-        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
-    })
-
+  
