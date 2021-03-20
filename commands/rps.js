@@ -54,8 +54,8 @@ return result;
 };
 module.exports = async function(msg,args){
     try{
-        if(msg.mentions.users.first().bot || msg.author == msg.mentions.users.first()){
-            return msg.reply("Invalid opponent please choose an actual player.")
+        if(msg.mentions.users.first().bot || msg.author == msg.mentions.users.first() || msg.mentions.users.first()==undefined){
+            return msg.reply("Invalid opponent please tag another player.")
         }
         else{
             msg.channel.send("Initializating RPS session...").then((a)=>{
