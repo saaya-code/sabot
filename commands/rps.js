@@ -54,7 +54,7 @@ return result;
 };
 module.exports = async function(msg,args){
     try{
-        if(msg.mentions.users.first().bot || msg.author == msg.mentions.users.first() || msg.mentions.users.first()==undefined){
+        if(msg.author == msg.mentions.users.first() || msg.mentions.users.first()==undefined ||msg.mentions.users.first().bot){
             return msg.reply("Invalid opponent please tag another player.")
         }
         else{
