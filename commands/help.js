@@ -11,8 +11,8 @@ module.exports = async function(msg){
  .addField("Joke","`*joke` : Sends a random joke.")
  .addField("Ping", "`*ping` : Replies with your current client ping.")
  .addField("Meme","`*meme` [Subreddit name] : Sends a random picture from the subbredit you provide or Dankmemes/memes/me_irl (in case no Subbredit name was provided).")
- .addField("Quote","`*quote` : Sends a random quote.");
- 
+ .addField("Quote","`*quote` : Sends a random quote.")
+ .addField("Motivate","`motivate` : Sends a motivational message in the channel where the command was issued.")
  const embed2 = new Discord.MessageEmbed()
  .setColor(msg.member.displayHexColor)
  .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
@@ -26,6 +26,7 @@ module.exports = async function(msg){
  .addField("Fact","`*fact` : Sends a random useless fact.")
  .addField("Lookfor","`*lookfor` <word> : Verifies the existance of <word> in english dictionary.")
  .addField("Rps", "`*rps` <@player> : Creates a rock paper scissors game session for you and the mentioned player.")
+ 
  
  msg.channel.send(embed1).then(async (msg1)=>{
    await msg1.react("⬅️")
