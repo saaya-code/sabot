@@ -29,5 +29,5 @@ module.exports = async function (msg) {
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
 }
-}catch(err){console.log(`Used a command that starts with * but doesn't belong to the commands in ${msg.guild.name}`)}
+}catch(err){}
 }
