@@ -12,7 +12,7 @@ module.exports = async function(msg){
     .setThumbnail("https://cdn.discordapp.com/avatars/759795320254496768/61188b7f3cc87950a7b48e2aac0c185e.png")
     .setFooter(today)
     .addField("\u200B","[**Click here to vote!**](https://top.gg/bot/759795320254496768/vote)")
-    .addField("Voting for sabot",'\n You can vote for sabot every 24 hours. \n Voting will allow you to join future giveaways, the higher your votes count the higher your chance of winning is !')
+    .addField("Voting for sabot",'\n You can vote for sabot every 12 hours. \n Voting will allow you to join future giveaways, the higher your votes count the higher your chance of winning is !')
     .setTitle("Vote for sabot")
     msg.channel.send(embed)
 }
