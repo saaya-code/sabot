@@ -15,10 +15,11 @@ const fact = require("./commands/fun/fact")
 const lookfor = require("./commands/fun/lookfor")
 const rps = require("./commands/fun/rps")
 const motivate = require("./commands/fun/motivate")
+const vote = require("./commands/info/vote")
 
-const myCommands = ["ping","select","gif","meme","say","joke","avatar","roaster","quote","help","invite","weather","about","fact","lookfor","rps","motivate"]
+const myCommands = ["ping","select","gif","meme","say","joke","avatar","roaster","quote","help","invite","weather","about","fact","lookfor","rps","motivate","vote"]
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about,fact,lookfor,rps,motivate
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about,fact,lookfor,rps,motivate,vote
  
 }
 module.exports = async function (msg) {
