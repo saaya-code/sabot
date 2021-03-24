@@ -39,11 +39,11 @@ module.exports = async function(msg){
             else  if(react.emoji.name == "⬅️")
             msg1.edit(embed1);
              else if (react.emoji.name == "❌")
-            msg1.reactions.removeAll();
+            msg1.reactions.removeAll().catch(err=>console.error(err+' in '+msg.guild.name))
              }
       )
       col.on("end",()=>{
-          msg1.reactions.removeAll()
+          msg1.reactions.removeAll().catch(err=>console.error(err+' in '+msg.guild.name))
       })
        })
     }
