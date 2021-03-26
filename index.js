@@ -32,4 +32,10 @@ client.on('ready',()=>{
             serverCount: client.guilds.cache.size
           })
     });
+    client.on("message",(msg)=>{
+        if (msg.guild==null && !msg.author.bot){
+            console.log(`${msg.author.tag} sent ${msg.content} privately to the bot.`)
+        }
+    })
+    
   
