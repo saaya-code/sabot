@@ -17,7 +17,6 @@ const rps = require("./commands/fun/rps")
 const motivate = require("./commands/fun/motivate")
 const vote = require("./commands/info/vote")
 
-const myCommands = ["ping","select","gif","meme","say","joke","avatar","roaster","quote","help","invite","weather","about","fact","lookfor","rps","motivate","vote"]
 const commands = {
  ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about,fact,lookfor,rps,motivate,vote
  
@@ -29,7 +28,7 @@ module.exports = async function (msg) {
     if (command.charAt(0)=="*" && command.indexOf("*") == command.lastIndexOf("*")  && msg.channel.permissionsFor(msg.guild.me).has("SEND_MESSAGES") && msg.channel.permissionsFor(msg.guild.me).has("ADD_REACTIONS")&&msg.channel.permissionsFor(msg.guild.me).has("VIEW_CHANNEL")){
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
-        console.log(`Used ${command} in ${msg.guild.name}\n by user ${msg.author.username}`)
+        console.log(`${msg.author.username} used ${command} in ${msg.guild.name}`)
 
 }
 }catch(err){}
