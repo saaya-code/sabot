@@ -12,7 +12,9 @@ module.exports = async function(msg){
  .addField("Ping", "`*ping` : Replies with your current client ping.")
  .addField("Meme","`*meme` [Subreddit name] : Sends a random picture from the subbredit you provide or Dankmemes/memes/me_irl (in case no Subbredit name was provided).")
  .addField("Quote","`*quote` : Sends a random quote.")
- .addField("Motivate","`motivate` : Sends a motivational message in the channel where the command was issued.")
+ .addField("Motivate","`*motivate` : Sends a motivational message in the channel where the command was issued.")
+ .addField("Vote","`*vote` [check] [user] : Sends the vote link for the bot in top.gg and checks if the mentioned user has already voted or not if provided or will take the author of the message as the argument.")
+
  const embed2 = new Discord.MessageEmbed()
  .setColor(msg.member.displayHexColor)
  .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
