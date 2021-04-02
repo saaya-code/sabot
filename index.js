@@ -4,6 +4,7 @@ const Topgg = require('@top-gg/sdk')
 require('dotenv').config();
 const api = new Topgg.Api(process.env.TOPGG)
 client.login(process.env.TOKEN)
+const fetch = require("node-fetch").default;
 const commandHandler = require("./commands");
 client.on("message",commandHandler)  
 client.on('ready',()=>{
@@ -37,5 +38,25 @@ client.on('ready',()=>{
             console.log(`${msg.author.tag} sent ${msg.content} privately to the bot.`)
         }
     })
+
+     client.on("message",msg=>{
+         if(msg.mentions.users.first() == client.user && !msg.author.bot){
+             result = msg.content.split(" ")
+            indice = result.indexOf(`<@!${client.user.id}>`)
+            rees = result.splice(indice,1)  
+            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name=${client.username}`, {
+                headers: {
+                    "Authorization": process.env.SNOWAPI
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    msg.channel.send(data.message);
+                })
+                .catch(e => console.error('An error occured. Please ensure if you provided the correct details in config.js'));
+              }
+            })
+         
+    
     
   

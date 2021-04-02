@@ -14,7 +14,7 @@ module.exports = async function(msg){
  .addField("Quote","`*quote` : Sends a random quote.")
  .addField("Motivate","`*motivate` : Sends a motivational message in the channel where the command was issued.")
  .addField("Vote","`*vote` [check] [user] : Sends the vote link for the bot in top.gg and checks if the mentioned user has already voted or not if provided or will take the author of the message as the argument.")
-
+ .addField("Talk", "`talk` : This is not a command but you can now tag the bot in each message to chat with him and ask him to do stuff **make sure its not nasty ehm 👀**!");
  const embed2 = new Discord.MessageEmbed()
  .setColor(msg.member.displayHexColor)
  .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
