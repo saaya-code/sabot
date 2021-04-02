@@ -40,8 +40,8 @@ client.on('ready',()=>{
     })
 
      client.on("message",msg=>{
-         if(msg.mentions.users.first() == client.user && !msg.author.bot){
-             result = msg.content.split(" ")
+         if(msg.mentions.users.first() == client.user && !msg.author.bot && msg.content.split(" ").length>1){
+            result = msg.content.split(" ")
             indice = result.indexOf(`<@!${client.user.id}>`)
             rees = result.splice(indice,1)  
             fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name=${client.username}`, {
