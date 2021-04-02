@@ -52,6 +52,7 @@ client.on('ready',()=>{
                 .then(res => res.json())
                 .then(data => {
                     msg.channel.send(data.message);
+                    console.log(`${msg.author.username} is talking to me saying ${result.join(" ")} \n and I replied ${data.message}`)
                 })
                 .catch(e => console.error('An error occured. Please ensure if you provided the correct details in config.js'));
               }
