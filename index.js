@@ -43,8 +43,9 @@ client.on('ready',()=>{
          if(msg.mentions.users.first() == client.user && !msg.author.bot && msg.content.split(" ").length>1){
             result = msg.content.split(" ")
             indice = result.indexOf(`<@!${client.user.id}>`)
-            rees = result.splice(indice,1)  
-            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name=${client.username}`, {
+            rees = result.splice(indice,1) 
+            console.log(result.join(" ")) 
+            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name='sabot'`, {
                 headers: {
                     "Authorization": process.env.SNOWAPI
                 }
@@ -54,7 +55,7 @@ client.on('ready',()=>{
                     msg.channel.send(data.message);
                     console.log(`${msg.author.username} is talking to me saying ${result.join(" ")} \n and I replied ${data.message}`)
                 })
-                .catch(e => console.error('An error occured. Please ensure if you provided the correct details in config.js'));
+                .catch(e => console.error('An error occured. Please ensure if you provided the correct details'));
               }
             })
          
