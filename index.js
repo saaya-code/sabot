@@ -45,7 +45,7 @@ client.on('ready',()=>{
             indice = result.indexOf(`<@!${client.user.id}>`)
             rees = result.splice(indice,1) 
             console.log(result.join(" ")) 
-            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name='sabot'`, {
+            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name=sabot`, {
                 headers: {
                     "Authorization": process.env.SNOWAPI
                 }
