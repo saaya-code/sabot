@@ -17,9 +17,9 @@ const rps = require("./commands/fun/rps")
 const motivate = require("./commands/fun/motivate")
 const vote = require("./commands/info/vote")
 const q = require("./commands/fun/q")
+const like = require("./commands/fun/like")
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about,fact,lookfor,rps,motivate,vote,q
- 
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite,weather,about,fact,lookfor,rps,motivate,vote,q,like
 }
 module.exports = async function (msg) {
    try{
