@@ -38,27 +38,10 @@ client.on('ready',()=>{
             console.log(`${msg.author.tag} sent ${msg.content} privately to the bot.`)
         }
     })
+       
+ 
 
-     client.on("message",msg=>{
-         if(msg.mentions.users.first() == client.user && !msg.author.bot && msg.content.split(" ").length>1){
-            result = msg.content.split(" ")
-            indice = result.indexOf(`<@!${client.user.id}>`)
-            rees = result.splice(indice,1) 
-            console.log(result.join(" ")) 
-            fetch(`https://api.snowflakedev.xyz/api/chatbot?message=${encodeURIComponent(result.join(" "))}&name=sabot`, {
-                headers: {
-                    "Authorization": process.env.SNOWAPI
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    msg.channel.send(data.message);
-                    console.log(`${msg.author.username} is talking to me saying ${result.join(" ")} \n and I replied ${data.message}`)
-                })
-                .catch(e => console.error('An error occured. Please ensure if you provided the correct details'));
-              }
-            })
-         
+     
     
     
   
