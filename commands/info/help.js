@@ -29,7 +29,7 @@ module.exports = async function(msg){
  .addField("Lookfor","`*lookfor` <word> : Verifies the existance of <word> in english dictionary.")
  .addField("Rps", "`*rps` <@player> : Creates a rock paper scissors game session for you and the mentioned player.")
  .addField("Queue", "`*q` <arg> : Makes a queue in the current server required args are : `start` to start a queue, `join` to join the queue, `skip` to skip your turn, `stop` to stop the queue, `show` to show the list of people in the queue, `current` to see who's currently speaking.")
- 
+ .addField("Movie", "`*movie` <name> : Shows detailed information about the movie you asked for.")
  
  msg.channel.send(embed1).then(async (msg1)=>{
    await msg1.react("⬅️")
