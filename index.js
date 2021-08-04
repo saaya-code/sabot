@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const Topgg = require('@top-gg/sdk')
+const GuildId = "646801258891706369";
+const logger = require("./commands/info/logger")
 require('dotenv').config();
 const api = new Topgg.Api(process.env.TOPGG)
 client.login(process.env.TOKEN)
@@ -39,7 +41,34 @@ client.on('ready',()=>{
         }
     })
        
+
+
+//logging section
+ client.on("channelCreate",(channel)=>{
+     try{
+     logger.createChannel(channel,client)
+}catch(err){
+    console.error(err)
+}
+ })
+
+ client.on("channelDelete",(channel)=>{
+    try{
+        logger.deleteChannel(channel,client)
+   }catch(err){
+       console.error(err)
+   } })
+
+client.on("channelPinsUpdate",(channel,time)=>{
+    //to be worked on
+})
  
+client.on("channelUpdate",(oldChannel,newChannel)=>{
+    try{
+        logger.updateChannel(channel,client)
+   }catch(err){
+       console.error(err)
+   }})
 
      
     
