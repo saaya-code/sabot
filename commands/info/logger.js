@@ -66,9 +66,10 @@ logger.updateChannel = async (oldChannel, newChannel, client)=>{
          embed.addField(`Old ${changes[i]} : `, oldChannel[changes[i]])
          embed.addField(`New ${changes[i]} : `, newChannel[changes[i]])
         }
+      logsChannel = client.channels.cache.get(channelId)
+      logsChannel.send(embed)
     }
-    logsChannel = client.channels.cache.get(channelId)
-    logsChannel.send(embed)
+   
 
 }
 
