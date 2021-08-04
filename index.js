@@ -65,7 +65,7 @@ client.on("channelPinsUpdate",(channel,time)=>{
  
 client.on("channelUpdate",(oldChannel,newChannel)=>{
     try{
-        logger.updateChannel(channel,client)
+        logger.updateChannel(oldChannel,newChannel,client)
    }catch(err){
        console.error(err)
    }})
