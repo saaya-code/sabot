@@ -68,13 +68,9 @@ client.on("channelPinsUpdate",(channel,time)=>{
 })
  
 client.on("channelUpdate",(oldChannel,newChannel)=>{
-<<<<<<< Updated upstream
-    try{
-=======
     try{        
-         if(channel.guild.id==GuildId)
+         if(oldChannel.guild.id==GuildId)
 
->>>>>>> Stashed changes
         logger.updateChannel(oldChannel,newChannel,client)
    }catch(err){
        console.error(err)
@@ -109,6 +105,3 @@ client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
         console.error(err)
        }
 })
-
-    
-  
