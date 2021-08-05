@@ -46,7 +46,9 @@ client.on('ready',()=>{
 //logging section
  client.on("channelCreate",(channel)=>{
      try{
+         if(channel.guild.id==GuildId)
      logger.createChannel(channel,client)
+    
 }catch(err){
     console.error(err)
 }
@@ -54,6 +56,7 @@ client.on('ready',()=>{
 
  client.on("channelDelete",(channel)=>{
     try{
+        if(channel.guild.id==GuildId)
         logger.deleteChannel(channel,client)
    }catch(err){
        console.error(err)
@@ -61,16 +64,51 @@ client.on('ready',()=>{
 
 client.on("channelPinsUpdate",(channel,time)=>{
     //to be worked on
+    
 })
  
 client.on("channelUpdate",(oldChannel,newChannel)=>{
+<<<<<<< Updated upstream
     try{
+=======
+    try{        
+         if(channel.guild.id==GuildId)
+
+>>>>>>> Stashed changes
         logger.updateChannel(oldChannel,newChannel,client)
    }catch(err){
        console.error(err)
    }})
 
      
-    
+   client.on("emojiCreate", function(emoji){
+    try{
+        if(emoji.guild.id==GuildId)
+        logger.createEmoji(emoji,client)
+   }catch(err){
+       console.error(err)
+   }
+});
+
+client.on("emojiDelete",(emoji)=>{
+    try{
+        if(emoji.guild.id==GuildId)
+        logger.deleteEmoji(emoji,client)
+       }
+    catch(err){
+        console.error(err)
+       }
+});
+
+client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
+    try{
+        if(oldEmoji.guild.id==GuildId)
+        logger.updateEmoji(oldEmoji,newEmoji,client)
+       }
+    catch(err){
+        console.error(err)
+       }
+})
+
     
   
