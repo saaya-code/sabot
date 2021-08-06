@@ -242,4 +242,7 @@ logger.guildMemberAdd = async (member, client)=>{
     
 }
 
+
+//@TODO guild member kick
+
 module.exports = logger;
