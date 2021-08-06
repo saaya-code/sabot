@@ -134,6 +134,8 @@ client.on("guildBanRemove", function(guild, user){
 
 client.on("guildMemberAdd", function(member){
     try{
+        if(oldEmoji.guild.id==GuildId)
+
         logger.guildMemberAdd(member,client)
        }
     catch(err){
