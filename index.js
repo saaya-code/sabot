@@ -17,6 +17,7 @@ client.on('ready',()=>{
     setInterval(()=>{
         client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
     },180000);
+    
 });
 
     client.on("guildCreate",(g) => { 
@@ -105,3 +106,32 @@ client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
         console.error(err)
        }
 })
+
+client.on("guildBanAdd",(guild, bannedMember)=>{
+    try{
+        logger.guildBanAdd(guild,bannedMember,client)
+       }
+    catch(err){
+        console.error(err)
+       }
+})
+
+
+
+client.on("guildBanRemove", function(guild, user){
+    try{
+        logger.guildBanRemove(guild, user, client)
+       }
+    catch(err){
+        console.error(err)
+       }
+});
+
+
+client.on("guildMemberAdd", function(member){
+    try{
+        logger.guildMemberAdd(member,client)
+       }
+    catch(err){
+        console.error(err)
+       }});
