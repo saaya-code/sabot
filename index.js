@@ -109,6 +109,8 @@ client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
 
 client.on("guildBanAdd",(guild, bannedMember)=>{
     try{
+        if(oldEmoji.guild.id==GuildId)
+
         logger.guildBanAdd(guild,bannedMember,client)
        }
     catch(err){
@@ -120,6 +122,8 @@ client.on("guildBanAdd",(guild, bannedMember)=>{
 
 client.on("guildBanRemove", function(guild, user){
     try{
+        if(oldEmoji.guild.id==GuildId)
+
         logger.guildBanRemove(guild, user, client)
        }
     catch(err){
