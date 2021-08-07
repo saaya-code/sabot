@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
-const channelId = "872514834355331123";
 const date = new Date().toString().replace("(Central European Standard Time)","")
-
+require('dotenv').config();
 
 var logger = {};
 //container for all the logging methods
@@ -22,7 +21,7 @@ logger.createChannel = async (channel, client)=>{
     .setColor("#FF6347")
     .setThumbnail("https://miro.medium.com/max/2000/1*Pn7Cp-mxO4NcEhc35GMQKQ.jpeg")
     .setFooter(date)
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
     
 }
@@ -43,7 +42,7 @@ logger.deleteChannel = async (channel, client)=>{
     .setThumbnail("https://miro.medium.com/max/2000/1*Pn7Cp-mxO4NcEhc35GMQKQ.jpeg")
     .setFooter(date)
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
 }
 
@@ -71,7 +70,7 @@ logger.updateChannel = async (oldChannel, newChannel, client)=>{
          embed.addField(`Old ${changes[i]} : `, oldChannel[changes[i]])
          embed.addField(`New ${changes[i]} : `, newChannel[changes[i]])
         }
-      logsChannel = client.channels.cache.get(channelId)
+      logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
       logsChannel.send(embed)
     }
    
@@ -94,7 +93,7 @@ logger.createEmoji = async (emoji,client) =>{
     
 
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
    
 }
@@ -113,7 +112,7 @@ logger.deleteEmoji = async (emoji, client) =>{
     .setThumbnail(emoji.url)
     .addField("Emoji deleted by user : ", deletor)
     .setFooter(date)
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
    
 }
@@ -144,7 +143,7 @@ logger.updateEmoji = async (oldEmoji, newEmoji, client)=>{
     embed.addField("Emoji updated by user : ", editor)
     .setFooter(date)
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
 }
 
@@ -166,7 +165,7 @@ logger.guildBanAdd = async (guild, user, client)=>{
     .setFooter(date)
 
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
 }
 
@@ -188,7 +187,7 @@ logger.guildBanRemove = async(guild, user, client)=>{
     .setFooter(date)
 
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
 }
 
@@ -212,7 +211,7 @@ logger.guildMemberAdd = async (member, client)=>{
     .setColor("#0000FF")
     .setFooter(date)
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
     }
     else{
@@ -232,7 +231,7 @@ logger.guildMemberAdd = async (member, client)=>{
     .setColor("#0000FF")
     .setFooter(date)
 
-    logsChannel = client.channels.cache.get(channelId)
+    logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
     logsChannel.send(embed)
     });
     }

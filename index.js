@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const Topgg = require('@top-gg/sdk')
-const GuildId = "646801258891706369";
 const logger = require("./commands/info/logger")
 require('dotenv').config();
 const api = new Topgg.Api(process.env.TOPGG)
@@ -47,7 +46,7 @@ client.on('ready',()=>{
 //logging section
  client.on("channelCreate",(channel)=>{
      try{
-         if(channel.guild.id==GuildId)
+         if(channel.guild.id==process.env.GUILDID)
      logger.createChannel(channel,client)
     
 }catch(err){
@@ -57,7 +56,7 @@ client.on('ready',()=>{
 
  client.on("channelDelete",(channel)=>{
     try{
-        if(channel.guild.id==GuildId)
+        if(channel.guild.id==process.env.GUILDID)
         logger.deleteChannel(channel,client)
    }catch(err){
        console.error(err)
@@ -70,7 +69,7 @@ client.on("channelPinsUpdate",(channel,time)=>{
  
 client.on("channelUpdate",(oldChannel,newChannel)=>{
     try{        
-         if(oldChannel.guild.id==GuildId)
+         if(oldChannel.guild.id==process.env.GUILDID)
 
         logger.updateChannel(oldChannel,newChannel,client)
    }catch(err){
@@ -80,7 +79,7 @@ client.on("channelUpdate",(oldChannel,newChannel)=>{
      
    client.on("emojiCreate", function(emoji){
     try{
-        if(emoji.guild.id==GuildId)
+        if(emoji.guild.id==process.env.GUILDID)
         logger.createEmoji(emoji,client)
    }catch(err){
        console.error(err)
@@ -89,7 +88,7 @@ client.on("channelUpdate",(oldChannel,newChannel)=>{
 
 client.on("emojiDelete",(emoji)=>{
     try{
-        if(emoji.guild.id==GuildId)
+        if(emoji.guild.id==process.env.GUILDID)
         logger.deleteEmoji(emoji,client)
        }
     catch(err){
@@ -99,7 +98,7 @@ client.on("emojiDelete",(emoji)=>{
 
 client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
     try{
-        if(oldEmoji.guild.id==GuildId)
+        if(oldEmoji.guild.id==process.env.GUILDID)
         logger.updateEmoji(oldEmoji,newEmoji,client)
        }
     catch(err){
@@ -109,7 +108,7 @@ client.on("emojiUpdate",(oldEmoji,newEmoji)=>{
 
 client.on("guildBanAdd",(guild, bannedMember)=>{
     try{
-        if(oldEmoji.guild.id==GuildId)
+        if(guild.id==process.env.GUILDID)
 
         logger.guildBanAdd(guild,bannedMember,client)
        }
@@ -122,7 +121,7 @@ client.on("guildBanAdd",(guild, bannedMember)=>{
 
 client.on("guildBanRemove", function(guild, user){
     try{
-        if(oldEmoji.guild.id==GuildId)
+        if(guild.id==process.env.GUILDID)
 
         logger.guildBanRemove(guild, user, client)
        }
@@ -134,7 +133,7 @@ client.on("guildBanRemove", function(guild, user){
 
 client.on("guildMemberAdd", function(member){
     try{
-        if(oldEmoji.guild.id==GuildId)
+        if(member.guild.id==process.env.GUILDID)
 
         logger.guildMemberAdd(member,client)
        }
