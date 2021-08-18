@@ -48,7 +48,7 @@ logger.deleteChannel = async (channel, client)=>{
 
 logger.updateChannel = async (oldChannel, newChannel, client)=>{
   let changes = [];
-    const AuditLogFetch = await newChannel.guild.fetchAuditLogs({limit: 1, type: "CHANNEL_DELETE"}); // Fetching the audot logs.
+    const AuditLogFetch = await newChannel.guild.fetchAuditLogs({limit: 1, type: "CHANNEL_UPDATE"}); // Fetching the audot logs.
     const Entry = AuditLogFetch.entries.first(); 
     const changer = Entry.executor || "Someone"
     const embed = new Discord.MessageEmbed()
@@ -242,6 +242,24 @@ logger.guildMemberAdd = async (member, client)=>{
 }
 
 
-//@TODO guild member kick
+
+logger.guildMemberRemove = (member, client)=>{
+    const AuditLogFetch = await member.guild.fetchAuditLogs({limit: 1, type: "MEMBER_KICK"}); // Fetching the audot logs.
+    const Entry = AuditLogFetch.entries.first();
+    const kicker = Entry.executor || "Someone" ;
+
+   const embed = new Discord.MessageEmbed()
+  .setTitle("Member left or kicked")
+  .addField("User : ", member, true)
+  .addField("User ID : ", member.id)
+  .addField("Kicked by user : ", kicker || "User Left")
+  .setThumbnail(member.user.avatarURL())
+  .setColor("#0000FF")
+  .setFooter(date)
+
+  logsChannel = client.channels.cache.get(process.env.LOGSCHANNEL)
+  logsChannel.send(embed)
+
+}
 
 module.exports = logger;
