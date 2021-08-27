@@ -243,7 +243,7 @@ logger.guildMemberAdd = async (member, client)=>{
 
 
 
-logger.guildMemberRemove = (member, client)=>{
+logger.guildMemberRemove = async (member, client)=>{
     const AuditLogFetch = await member.guild.fetchAuditLogs({limit: 1, type: "MEMBER_KICK"}); // Fetching the audot logs.
     const Entry = AuditLogFetch.entries.first();
     const kicker = Entry.executor || "Someone" ;
