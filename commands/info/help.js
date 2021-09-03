@@ -15,6 +15,7 @@ module.exports = async function(msg){
  .addField("Motivate","`*motivate` : Sends a motivational message in the channel where the command was issued.")
  .addField("Vote","`*vote` [check] [user] : Sends the vote link for the bot in top.gg and checks if the mentioned user has already voted or not if provided or will take the author of the message as the argument.")
  .addField("Like","`*like` [Keyword]: Replies with 10 words similar to the keyword you provided." )
+ .addField("Todo","`*todo` : <specifier> : you can use *todo `add` 'A task', *todo `show`  to show your current tasks, *todo `clear` to clear the current tasks list, and *todo `finished` [the index of the finished task] that can be found with the show command. to mark the finished tasks.")
  const embed2 = new Discord.MessageEmbed()
  .setColor(msg.member.displayHexColor)
  .setTitle("Github link").setURL("https://github.com/saaya-code/Sabot")
