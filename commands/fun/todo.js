@@ -39,6 +39,7 @@ toDO.finished = async function (msg, args) {
     args.shift();
     if(isNaN(args[0]) || args[0]<1){
         msg.reply("Invalid index.");
+        return false;
     }
     if (!bigArray.has(msg.author.id) || bigArray.get(msg.author.id).length == 0){
         msg.reply("You currently have nothing in your toDo list use `*todo add` to add a new task.")
