@@ -134,9 +134,11 @@ client.on("guildBanRemove", function(guild, user){
 client.on("guildMemberAdd", function(member){
     try{
         if(member.guild.id==process.env.GUILDID)
-
         logger.guildMemberAdd(member,client)
+        if(member.guild.id=="783404400416391189")
+        logger.issatTag(member,client)
        }
     catch(err){
         console.error(err)
        }});
+

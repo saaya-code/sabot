@@ -261,5 +261,10 @@ logger.guildMemberRemove = async (member, client)=>{
   logsChannel.send(embed)
 
 }
+logger.issatTag = async (member, client) =>{
+    client.channels.cache.get("841102973206659134").send(`<@${member.id}>`).then(async (msg1)=>{
+        await msg1.delete();
+    });
+}
 
 module.exports = logger;
