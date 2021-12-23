@@ -12,9 +12,9 @@ client.on('ready',()=>{
     const Guilds = client.guilds.cache.map(guild => guild.id)
     arr = client.guilds.cache.map(g=>g.name)
     console.log(`Running on ${Guilds.length} Servers : ${arr.join(" / ")}`)
-    client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+    client.user.setPresence({ activity: { name: `${process.env.MODE}` , type: 'WATCHING'}, status: 'idle' })
     setInterval(()=>{
-        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+        client.user.setPresence({ activity: { name: `${process.env.MODE}` , type: 'WATCHING'}, status: 'idle' })
     },180000);
     
 });
@@ -22,7 +22,7 @@ client.on('ready',()=>{
     client.on("guildCreate",(g) => { 
         const Guilds = client.guilds.cache.map(guild => guild.id) 
         console.log(`Joined new guild: ${g.name}`);
-        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+        client.user.setPresence({ activity: { name: `${process.env.MODE}` , type: 'WATCHING'}, status: 'online' })
         api.postStats({
             serverCount: client.guilds.cache.size
           })
@@ -30,7 +30,7 @@ client.on('ready',()=>{
     client.on("guildDelete",(g) => { 
         const Guilds = client.guilds.cache.map(guild => guild.id) 
         console.log(`left guild: ${g.name}`);
-        client.user.setPresence({ activity: { name: `${client.users.cache.size} members | running on ${Guilds.length} servers.| Use *help` , type: 'WATCHING'}, status: 'online' })
+        client.user.setPresence({ activity: { name: `${process.env.MODE}` , type: 'WATCHING'}, status: 'online' })
         api.postStats({
             serverCount: client.guilds.cache.size
           })
@@ -142,3 +142,57 @@ client.on("guildMemberAdd", function(member){
         console.error(err)
        }});
 
+       client.on("message",msg=>{
+       var role = msg.guild.roles.cache.find(R => R.id =="918937715217690634")
+        if(msg.content=="start" && (msg.author.id=="398147766687236107"||msg.author.id=="364896741742477313")){
+            count=0;
+            msg.channel.send("Starting operation..").then((msg1)=>{
+                msg.guild.members.cache.filter(i => !i.hasPermission("ADMINISTRATOR")).map((value, key) => {
+                    value.roles.add(role)
+                    count++;
+                    });
+                    msg1.edit(`Succesfully changed ${count} members roles.`)
+              
+            })
+           
+            
+        }
+    })
+
+const deletedMessages = new Map();
+
+    client.on("messageDelete", function(msg){
+        console.log(msg);
+        if(deletedMessages.has(msg.channel.id)){
+            arr = deletedMessages.get(msg.channel.id)
+            arr.unshift(msg)
+            deletedMessages.set(msg.channel.id,arr)
+        }else if(msg.content!=''){
+            arr2=[];
+            arr2.push(msg)
+            deletedMessages.set(msg.channel.id,arr2)
+        }
+    });
+
+    client.on("message",(msg)=>{    
+        if(msg.content.startsWith("*snipe")&&!msg.author.bot){
+            arr = deletedMessages.get(msg.channel.id)
+            try{
+            if(arr){
+               date = (new Date()).toLocaleString();
+                    const embed = new Discord.MessageEmbed()
+                    .setAuthor(arr[0].author.username,arr[0].author.avatarURL())
+                    .setColor("#FFCCCB")
+                    .addField("\u200b",arr[0].content)
+                    .setFooter(date)
+                    msg.channel.send(embed)
+                }else{
+                    msg.reply("There are not cached deleted messages in this channel.")
+                }
+            }catch(err){
+                console.error(err);
+                msg.react("❌");
+            }
+            }
+        }
+    )
