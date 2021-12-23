@@ -98,7 +98,7 @@ await msg1.edit(realembed)
             await msg1.react(`🧻`)
             await msg1.react(`✂️`)
             await msg1.edit(realembed)
-            await msg1.awaitReactions((reaction, user) => user.id == player2.user.id && (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
+            await msg1.awaitReactions((reaction, user) =>  (reaction.emoji.name == '🪨' || reaction.emoji.name == '🧻' || reaction.emoji.name == `✂️` ),{ max: 1, time: 300000 }).then((collected)=>{
                 if (collected.first().emoji.name == `🪨`)
                 player2.choice = `rock`
                 if (collected.first().emoji.name == `🧻`)

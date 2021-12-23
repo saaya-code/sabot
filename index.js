@@ -142,22 +142,6 @@ client.on("guildMemberAdd", function(member){
         console.error(err)
        }});
 
-       client.on("message",msg=>{
-       var role = msg.guild.roles.cache.find(R => R.id =="918937715217690634")
-        if(msg.content=="start" && (msg.author.id=="398147766687236107"||msg.author.id=="364896741742477313")){
-            count=0;
-            msg.channel.send("Starting operation..").then((msg1)=>{
-                msg.guild.members.cache.filter(i => !i.hasPermission("ADMINISTRATOR")).map((value, key) => {
-                    value.roles.add(role)
-                    count++;
-                    });
-                    msg1.edit(`Succesfully changed ${count} members roles.`)
-              
-            })
-           
-            
-        }
-    })
 
 const deletedMessages = new Map();
 
